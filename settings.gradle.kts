@@ -1,0 +1,1 @@
+include(":app", ":wear", ":tv", ":core")
