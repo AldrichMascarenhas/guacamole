@@ -15,11 +15,11 @@
 package com.example.guacamole
 
 import android.graphics.drawable.Drawable
-import android.support.v17.leanback.widget.ImageCardView
-import android.support.v17.leanback.widget.Presenter
-import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.leanback.widget.ImageCardView
+import androidx.leanback.widget.Presenter
 
 import com.bumptech.glide.Glide
 import kotlin.properties.Delegates
