@@ -14,7 +14,6 @@
 package com.example.guacamole
 
 import android.app.Activity
-import android.app.Fragment
 import android.os.Bundle
 import android.os.Handler
 import android.view.Gravity
@@ -36,33 +35,33 @@ class BrowseErrorActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        testError()
+        //testError()
     }
 
-    private fun testError() {
-        mErrorFragment = ErrorFragment()
-        fragmentManager
-            .beginTransaction()
-            .add(R.id.main_browse_fragment, mErrorFragment)
-            .commit()
+//    private fun testError() {
+//        mErrorFragment = ErrorFragment()
+//            .
+//            .beginTransaction()
+//            .add(R.id.main_browse_fragment, mErrorFragment)
+//            .commit()
+//
+//        mSpinnerFragment = SpinnerFragment()
+//        fragmentManager
+//            .beginTransaction()
+//            .add(R.id.main_browse_fragment, mSpinnerFragment)
+//            .commit()
+//
+//        val handler = Handler()
+//        handler.postDelayed({
+//            fragmentManager
+//                .beginTransaction()
+//                .remove(mSpinnerFragment)
+//                .commit()
+//            mErrorFragment.setErrorContent()
+//        }, TIMER_DELAY)
+//    }
 
-        mSpinnerFragment = SpinnerFragment()
-        fragmentManager
-            .beginTransaction()
-            .add(R.id.main_browse_fragment, mSpinnerFragment)
-            .commit()
-
-        val handler = Handler()
-        handler.postDelayed({
-            fragmentManager
-                .beginTransaction()
-                .remove(mSpinnerFragment)
-                .commit()
-            mErrorFragment.setErrorContent()
-        }, TIMER_DELAY)
-    }
-
-    class SpinnerFragment : Fragment() {
+    class SpinnerFragment : androidx.fragment.app.Fragment() {
         override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
