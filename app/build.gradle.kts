@@ -24,6 +24,7 @@ android {
 }
 
 dependencies {
+    api(project(":core"))
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
