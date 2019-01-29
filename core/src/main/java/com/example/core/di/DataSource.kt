@@ -1,6 +1,6 @@
 package com.example.core.di
 
-import com.example.core.api.SpotifyAPIService
+import com.example.core.api.MovieDatabaseAPIService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module.module
@@ -10,20 +10,19 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
-val remoteDataSource = module {
+val remoteDataSourceDIModule = module {
 
     /**
      * Create single [OkHttpClient]
      */
     single { createOkHttpClient() }
 
-    single { createRetrofitService<SpotifyAPIService>(get(), getProperty(SPOTIFY_BASE_URL)) }
-
+    single { createRetrofitService<MovieDatabaseAPIService>(get(), getProperty(MOVIE_DATABASE_API_BASE_URL)) }
 
 }
 
 
-const val SPOTIFY_BASE_URL = "xyz"
+const val MOVIE_DATABASE_API_BASE_URL = "xyz"
 
 
 fun createOkHttpClient(): OkHttpClient {
