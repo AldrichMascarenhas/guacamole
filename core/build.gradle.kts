@@ -1,6 +1,8 @@
-
 plugins{
     id("com.android.library")
+    kotlin("android")
+    kotlin("kapt")
+    kotlin("android.extensions")
 }
 
 android {
@@ -48,5 +50,6 @@ dependencies {
     api  ("org.koin:koin-core:1.0.0-beta-3")
     // Koin for Android
     api ("org.koin:koin-android:1.0.0-beta-3")
+    implementation("androidx.core:core-ktx:+")
 
 }
