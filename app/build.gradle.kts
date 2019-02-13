@@ -28,24 +28,24 @@ dependencies {
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
+    //Kotlin Standard Library JDK 7 extension
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.11")
+
+    //Android
+    implementation("androidx.core:core-ktx:1.1.0-alpha04")
     implementation("androidx.appcompat:appcompat:1.0.2")
-    implementation("androidx.core:core-ktx:1.1.0-alpha03")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     implementation("com.google.android.material:material:1.0.0")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.recyclerview:recyclerview:1.0.0")
-
     implementation("com.google.android.material:material:1.1.0-alpha02")
-
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.0.0")
 
-    implementation("android.arch.navigation:navigation-fragment-ktx:1.0.0-alpha11") // use -ktx for Kotlin
+    // Architecture Components
+    implementation("android.arch.navigation:navigation-fragment-ktx:1.0.0-alpha11")
     implementation("android.arch.navigation:navigation-ui-ktx:1.0.0-alpha11")
 
-
-    implementation("androidx.lifecycle:lifecycle-extensions:2.0.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0")
+    //Test
     testImplementation("junit:junit:4.12")
     androidTestImplementation("androidx.test:runner:1.1.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1")
