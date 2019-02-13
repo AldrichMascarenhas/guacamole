@@ -1,21 +1,20 @@
 package com.example.guacamole.discoverfragment
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import com.example.core.result.Resource
+import com.example.core.util.extensions.tag
 import com.example.guacamole.R
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class DiscoverFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = DiscoverFragment()
-    }
-
-    private lateinit var viewModel: DiscoverViewModel
+    private val discoveryViewModel: DiscoveryViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,10 +23,24 @@ class DiscoverFragment : Fragment() {
         return inflater.inflate(R.layout.discover_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(DiscoverViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
+        //TODO : Clean this up when working on the Fragment UI
+        discoveryViewModel.getData().observe(this, Observer {
+            when (it) {
+
+                is Resource.Success -> {
+                    Log.d(tag(), "Success ${it.data.size}")
+                }
+
+                is Resource.Loading -> {
+                    Log.d(tag(), "Loading ${it.data?.size ?: 0}")
+                }
+                is Resource.Error -> {
+                    Log.d(tag(), "Error ${it.throwable}")
+                }
+            }
+        })
+    }
 }
